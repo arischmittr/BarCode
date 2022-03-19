@@ -8,14 +8,14 @@ using namespace std;
 
 // Color declarations
 
-#define NC "\033[0m"               /* No Color */
-#define BRED "\033[1m\033[31m"     /* Bold Red */
-#define BGREEN "\033[1m\033[32m"   /* Bold Green */
-#define BYELLOW "\033[1m\033[33m"  /* Bold Yellow */
-#define BBLUE "\033[1m\033[34m"    /* Bold Blue */
-#define BMAGENTA "\033[1m\033[35m" /* Bold Magenta */
-#define BCYAN "\033[1m\033[36m"    /* Bold Cyan */
-#define BWHITE "\033[1m\033[37m"   /* Bold White */
+#define NC "\033[0m"        /* No Color */
+#define BRED "\033[31m"     /* Bold Red */
+#define BGREEN "\033[32m"   /* Bold Green */
+#define BYELLOW "\033[33m"  /* Bold Yellow */
+#define BBLUE "\033[34m"    /* Bold Blue */
+#define BMAGENTA "\033[35m" /* Bold Magenta */
+#define BCYAN "\033[36m"    /* Bold Cyan */
+#define BWHITE "\033[37m"   /* Bold White */
 
 int main()
 {
