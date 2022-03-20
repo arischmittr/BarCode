@@ -69,62 +69,83 @@ int main()
     {
         cout << BGREEN << "Your Barcode is Valid\t" << NC;
     }
+
+    // Check if Barcode has more or less than 13 characters
+
+    else if (length < 13)
+    {
+        cout << BRED << "Your Barcode is to short\t" << NC;
+    }
+    else if (length > 13)
+    {
+        cout << BRED << "Your Barcode is to long\t" << NC;
+    }
+
+    // From here to Set 1 the program checks if the user has entered any digit that is not a integer
+
     else if (d0 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d1 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d2 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d3 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d4 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d5 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d6 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d7 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d8 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d9 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d10 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (d11 >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
     else if (dv >= 49)
     {
-        cout << BRED << "Your Barcode is not Valid\t" << NC;
+        cout << BRED << "Your Barcode contains a Non integer Digit, it is not Valid\t" << NC;
     }
+    // Set 1
+
+    // Check if it has the proprer lenght and if the verification digit is not correct
+
     else if (length == 13 && mult - soma != dv)
     {
         cout << BMAGENTA << "Your Barcode is Valid, but the Verify Digit is Wrong\t" << NC;
     }
+
+    // if none of the above checks catch a mistake it reproves the barcode
+
     else
     {
         cout << BRED << "Your Barcode is not Valid\t" << NC;
