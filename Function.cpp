@@ -7,7 +7,6 @@
 using namespace std;
 
 // Color declarations
-#define BarcodeTS BarcodeT.str()
 #define NC "\033[0m"        /* No Color */
 #define BRED "\033[31m"     /* Bold Red */
 #define BGREEN "\033[32m"   /* Bold Green */
@@ -22,8 +21,9 @@ int main()
     // Define Varibles
 
     string Barcode;
-    int d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, dv, soma, mult;
-    stringstream BarcodeT;
+    int d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, dv, soma, mult, length, i;
+
+    length = 0;
 
     // Introduction to the project and wait for User input
 
@@ -51,11 +51,12 @@ int main()
 
     // Insert the integers into a Special type String
 
-    BarcodeT << d0 << d1 << d2 << d3 << d4 << d5 << d6 << d7 << d8 << d9 << d10 << d11 << dv;
+    cout << BWHITE << "\nYour Barcode is \t" << Barcode << NC << endl;
 
-    // Print user Barcode
-
-    cout << BWHITE << "\nYour Barcode is \t" << BarcodeTS << NC << endl;
+    for (i = 0; Barcode[i] != '\0'; ++i)
+    {
+        length++;
+    }
 
     // Make the mathematical operations to calculate the verification digit
 
@@ -64,12 +65,63 @@ int main()
     mult = (soma / 10 + 1) * 10;
 
     // Check if USer Barcode has 13 Integers and if the verification digit is correct
-
-    if (BarcodeTS.length() == 13 && mult - soma == dv)
+    if (length == 13 && mult - soma == dv)
     {
         cout << BGREEN << "Your Barcode is Valid\t" << NC;
     }
-    else if (BarcodeTS.length() == 13 && mult - soma != dv)
+    else if (d0 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d1 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d2 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d3 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d4 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d5 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d6 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d7 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d8 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d9 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d10 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (d11 >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (dv >= 49)
+    {
+        cout << BRED << "Your Barcode is not Valid\t" << NC;
+    }
+    else if (length == 13 && mult - soma != dv)
     {
         cout << BMAGENTA << "Your Barcode is Valid, but the Verify Digit is Wrong\t" << NC;
     }
