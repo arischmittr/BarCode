@@ -7,7 +7,8 @@
 using namespace std;
 
 // Color declarations
-#define BarcodeTS BarcodeT.str()
+#define BarcodeTS BarcodeT.str() /* Define Varible */
+
 #define NC "\033[0m"        /* No Color */
 #define BRED "\033[31m"     /* Bold Red */
 #define BGREEN "\033[32m"   /* Bold Green */
