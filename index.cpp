@@ -1,13 +1,9 @@
 // Basic declarations.
-
-#include <string>
 #include <iostream>
-#include <sstream>
 
 using namespace std;
 
 // Color declarations
-
 #define NC "\033[0m"        /* No Color */
 #define BRED "\033[31m"     /* Bold Red */
 #define BGREEN "\033[32m"   /* Bold Green */
@@ -20,42 +16,35 @@ using namespace std;
 int main()
 {
     // Define Varibles
+    long long int Barcode;
 
-    string Barcode;
-    int d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, dv, soma, mult;
-    stringstream BarcodeT;
+    int d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, dv, soma, mult, length;
 
-    // Introduction to the project and wait for User input
-
+    length = 0;
     cout << BYELLOW << "Let's verify your Barcode! \n\n"
          << NC;
     cout << BYELLOW << "Insert your Barcode \n"
          << NC;
     cin >> Barcode;
 
-    // Takes Characters from user input and tranfrom to integer
+    // Takes user input and separete digits
+    d0 = Barcode / 1000000000000;
+    d1 = (Barcode / 100000000000) % 10;
+    d2 = ((Barcode / 10000000000) % 100) % 10;
+    d3 = (((Barcode / 1000000000) % 1000) % 100) % 10;
+    d4 = ((((Barcode / 100000000) % 10000) % 1000) % 100) % 10;
+    d5 = (((((Barcode / 10000000) % 100000) % 10000) % 1000) % 100) % 10;
+    d6 = ((((((Barcode / 1000000) % 1000000) % 100000) % 10000) % 1000) % 100) % 10;
+    d7 = (((((((Barcode / 100000) % 10000000) % 1000000) % 100000) % 10000) % 1000) % 100) % 10;
+    d8 = ((((((((Barcode / 10000) % 100000000) % 10000000) % 1000000) % 100000) % 10000) % 1000) % 100) % 10;
+    d9 = (((((((((Barcode / 1000) % 1000000000) % 100000000) % 10000000) % 1000000) % 100000) % 10000) % 1000) % 100) % 10;
+    d10 = ((((((((((Barcode / 100) % 10000000000) % 1000000000) % 100000000) % 10000000) % 1000000) % 100000) % 10000) % 1000) % 100) % 10;
+    d11 = (((((((((((Barcode / 10) % 100000000000) % 10000000000) % 1000000000) % 100000000) % 10000000) % 1000000) % 100000) % 10000) % 1000) % 100) % 10;
+    dv = ((((((((((((Barcode % 1000000000000) % 100000000000) % 10000000000) % 10000000000) % 1000000000) % 100000000) % 10000000) % 1000000) % 100000) % 10000) % 1000) % 100) % 10;
 
-    d0 = Barcode[0] - '0';
-    d1 = Barcode[1] - '0';
-    d2 = Barcode[2] - '0';
-    d3 = Barcode[3] - '0';
-    d4 = Barcode[4] - '0';
-    d5 = Barcode[5] - '0';
-    d6 = Barcode[6] - '0';
-    d7 = Barcode[7] - '0';
-    d8 = Barcode[8] - '0';
-    d9 = Barcode[9] - '0';
-    d10 = Barcode[10] - '0';
-    d11 = Barcode[11] - '0';
-    dv = Barcode[12] - '0';
+    // Print out User Barcode
 
-    // Insert the integers into a Special type String
-
-    BarcodeT << d0 << d1 << d2 << d3 << d4 << d5 << d6 << d7 << d8 << d9 << d10 << d11 << dv;
-
-    // Print user Barcode
-
-    cout << BWHITE << "\nYour Barcode is \t" << BarcodeT.str() << NC << endl;
+    cout << BWHITE << "\nYour Barcode is \t" << Barcode << NC << endl;
 
     // Make the mathematical operations to calculate the verification digit
 
@@ -63,18 +52,41 @@ int main()
 
     mult = (soma / 10 + 1) * 10;
 
-    // Check if USer Barcode has 13 Integers and if the verification digit is correct
+    // get lebght of integer
 
-    if (BarcodeT.str().length() == 13 && mult - soma == dv)
+    do
+    {
+        ++length;
+        Barcode /= 10;
+    } while (Barcode != 0);
+
+    // Check if User Barcode has 13 Integers and if the verification digit is correct
+    if (length == 13 && mult - soma == dv)
     {
         cout << BGREEN << "Your Barcode is Valid\t" << NC;
     }
-    else if (BarcodeT.str().length() == 13 && mult - soma != dv)
+
+    // Check if it has the proprer lenght and if the verification digit is not correct
+
+    else if (length == 13 && mult - soma != dv)
     {
         cout << BMAGENTA << "Your Barcode is Valid, but the Verify Digit is Wrong\t" << NC;
     }
+    else if (length <= 13)
+    {
+        cout << BRED << "Your Barcode is to short\t" << NC;
+    }
+
+    else if (length >= 13)
+    {
+        cout << BRED << "Your Barcode is to long\t" << NC;
+    }
+
+    // if none of the above checks catch a mistake it reproves the barcode
+
     else
     {
         cout << BRED << "Your Barcode is not Valid\t" << NC;
     }
+    return 0;
 }
