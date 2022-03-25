@@ -72,6 +72,9 @@ int main()
     {
         cout << BMAGENTA << "Your Barcode is Valid, but the Verify Digit is Wrong\t" << NC;
     }
+
+    // Check lenght for User response
+
     else if (length <= 13)
     {
         cout << BRED << "Your Barcode is to short\t" << NC;
